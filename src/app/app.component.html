@@ -1,3 +1,27 @@
-<h1>
-  {{title}}
-</h1>
+<div class="jumbotron">
+    <h1>{{title}}</h1> 
+    <p>Calculo del valor de las cuotas en base a valor contado, tasa de interes anual, arancel de tarjeta de credito y 
+    cantidad de cuotas.</p> 
+</div>
+<div class="form-group">
+	<label>Contado</label>
+	<input type="number" [value]="contado" (input)="contado = $event.target.value" />
+</div>
+<div class="form-group">
+	<label>Tasa Interes</label>
+	<input type="number" [value]="tasa_interes" (input)="tasa_interes = $event.target.value" />
+</div>
+<div class="form-group">
+	<label>Tasa Arancel</label>
+	<input type="number" [value]="tasa_arancel" (input)="tasa_arancel = $event.target.value" />
+</div>
+<div class="form-group">
+	<label>Cuotas</label>
+	<input type="number" [value]="cuotas" (input)="cuotas = $event.target.value" />
+</div>
+<button (click)="calculateAmounts()" class="btn btn-primary btn-sm">Calcular</button>
+<button (click)="initializeApp()" class="btn btn-warning btn-sm">Inicializar</button>
+<div>
+      <p class="text-info">Monto Total : {{monto_total}}</p>
+      <p *ngIf="cuotas>0"class="text-info">Monto Cuotas : {{monto_cuota}}</p>
+</div>
